@@ -1,0 +1,3 @@
+INSERT IGNORE INTO alunos(id,nome,sobrenome,endereco,numero,cpf,email) VALUES(1, 'Fulano', 'Da Silva', 'Rua Guilherme Alves', 230, '58798549065', 'teste1@gmail.com');
+INSERT IGNORE INTO alunos(id,nome,sobrenome,endereco,numero,cpf,email) VALUES(2, 'Beltrano', 'Oliveria', 'Av. Ipiranga', 7200, '75269096056', 'teste2@gmail.com');
+INSERT IGNORE INTO alunos(id,nome,sobrenome,endereco,numero,cpf,email) VALUES(3, 'Ciclano', 'Silva', 'Rua Machado de Assis', 313, '87521626052', 'teste3@gmail.com');

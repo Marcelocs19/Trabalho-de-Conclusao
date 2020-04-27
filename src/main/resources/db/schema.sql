@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS alunos (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(40),
+  sobrenome VARCHAR(80),
+  endereco VARCHAR(255),
+  numero INTEGER,
+  cpf VARCHAR(11),
+  email VARCHAR(255)
+);
