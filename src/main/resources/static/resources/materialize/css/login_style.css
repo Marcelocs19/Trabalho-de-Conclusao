@@ -1,0 +1,28 @@
+.formatarImagem {
+    height: 50px;
+    width: 100px;
+}
+
+#formatarImagemMarista {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+#formatarImagemMCT {
+  height: 170px;
+  width: 220px;
+}
+
+.msg {
+    width:100%;
+    padding:10px;
+}
+.msg-error {
+// rouge
+border-color: #d32f2f;
+    background-color: #ef5350;
+    color: white;
+}
+
