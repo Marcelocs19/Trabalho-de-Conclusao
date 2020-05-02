@@ -36,32 +36,30 @@
 	type="text/css">
 <!-- /css -->
 
-
-<title>SAPEF</title>
-
-
 </head>
 
 <body>
 
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-dark alturaNav"
-			id="corPadrao">
-			<div class="nav-wrapper">
-				<a class="brand-logo" th:href="@{/}"><img class="logoResponsivo">
-				</a> <a href="#" data-activates="menu-mobile" class="button-collapse"><em
-					class="material-icons"></em> </a>
-				<ul class="right hide-on-med-and-down">
-					<li><a href="/alunos">Alunos</a></li>
-				</ul>
-			</div>
-		</nav>
-	</header>
 
+	<nav>
+		<div class="nav-wrapper">
+			<a href="/alunos" class="brand-logo"><i class="material-icons">cloud</i>SAPEF</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/alunos">Alunos</a></li>
+			</ul>
+		</div>
+
+		<ul class="side-nav" id="mobile-demo">
+			<li class="active"><a href="/alunos">Alunos</a></li>
+		</ul>
+	</nav>
 
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+	<script>
+		$(".button-collapse").sideNav();
+	</script>
 
 </body>
 
