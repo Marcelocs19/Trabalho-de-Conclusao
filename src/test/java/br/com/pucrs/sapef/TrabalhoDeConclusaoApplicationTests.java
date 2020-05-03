@@ -1,4 +1,4 @@
-package br.com.pucrs;
+package br.com.pucrs.sapef;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

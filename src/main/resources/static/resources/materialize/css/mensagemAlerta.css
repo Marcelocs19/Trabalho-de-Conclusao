@@ -1,0 +1,15 @@
+.icon_style{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: #434944;
+    cursor:pointer; 
+}
+
+#corMensagemSucesso {
+	background-color: #D4EDDA;
+}
+#corMensagemErro {
+	background-color: #F8D7DA;
+}

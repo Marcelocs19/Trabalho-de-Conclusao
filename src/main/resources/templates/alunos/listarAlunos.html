@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+
+<head>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{fragmentos/layout :: layout (~{::body},'alunos')}">
+	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+
+	<h2>Alunos</h2>
+
+	<table class="responsive-table highlight">
+		<thead>
+			<tr>
+				<th style="width: 150px;">Nome</th>
+				<th style="width: 150px;">Sobrenome</th>
+				<th style="width: 150px;">Endereco</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="alu : ${alunos}">
+				<td>
+					<p th:text="${alu.nome}" /></p>
+				</td>
+				<td>
+					<p th:text="${alu.sobrenome}" /></p>
+				</td>
+				<td>
+					<p th:text="${alu.endereco}" /></p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	 <iframe src="https://embed.waze.com/iframe?zoom=13&lat=-30.03465931282814%2C&lon=-51.21766090393067&pin=1"
+                width="100%" height="520"></iframe>
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+</body>
+</html>

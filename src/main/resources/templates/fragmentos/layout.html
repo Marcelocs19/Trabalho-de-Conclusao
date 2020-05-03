@@ -1,0 +1,66 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org"
+	th:fragment="layout (template, menu)">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon"
+	th:href="@{/../../resources/images/favicon.ico}">
+
+<link type="text/css" rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- css -->
+<link rel="stylesheet"
+	th:href="@{../../resources/materialize/css/layout.css}" type="text/css">
+
+<link rel="stylesheet"
+	th:href="@{../../resources/materialize/css/mensagemAlerta.css}"
+	type="text/css">
+
+<link rel="stylesheet"
+	th:href="@{../../resources/materialize/css/materialize.min.css}"
+	type="text/css">
+<!-- /css -->
+
+</head>
+
+<body>
+
+
+	<nav>
+		<div class="nav-wrapper">
+			<a href="/alunos" class="brand-logo"><i class="material-icons">cloud</i>SAPEF</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/alunos">Alunos</a></li>
+			</ul>
+		</div>
+
+		<ul class="side-nav" id="mobile-demo">
+			<li class="active"><a href="/alunos">Alunos</a></li>
+		</ul>
+	</nav>
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+	<script>
+		$(".button-collapse").sideNav();
+	</script>
+
+</body>
+
+</html>
