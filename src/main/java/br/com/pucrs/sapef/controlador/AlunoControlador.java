@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.pucrs.sapef.endpoint.ConstantesEndPoints;
 import br.com.pucrs.sapef.modelo.Aluno;
 import br.com.pucrs.sapef.servico.AlunoServico;
 
@@ -16,13 +15,13 @@ public class AlunoControlador {
 
 	@Autowired
 	private AlunoServico alunoServico;
-
-	@GetMapping(ConstantesEndPoints.EndPointAluno.requestAlunos)
+	
+	@GetMapping("/alunos")
 	public ModelAndView listarAluno() {
-		ModelAndView modelo = new ModelAndView(ConstantesEndPoints.EndPointAluno.listarAlunos);
+		ModelAndView modelo = new ModelAndView("alunos/listarAlunos");
 
 		List<Aluno> listaAlunos = alunoServico.listaTodosAlunos();
-		modelo.addObject(ConstantesEndPoints.EndPointAluno.modeloAluno, listaAlunos);
+		modelo.addObject("alunos", listaAlunos);
 		
 		return modelo;
 
