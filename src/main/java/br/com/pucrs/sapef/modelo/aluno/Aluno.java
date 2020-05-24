@@ -1,4 +1,4 @@
-package br.com.pucrs.sapef.modelo;
+package br.com.pucrs.sapef.modelo.aluno;
 
 import java.io.Serializable;
 
