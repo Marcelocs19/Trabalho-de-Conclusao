@@ -1,35 +1,19 @@
-package br.com.pucrs.sapef.modelo.aluno;
-
-import java.io.Serializable;
+package br.com.pucrs.sapef.form;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
 @ToString
-@Entity
-@Table(name = "ALUNO")
-@SequenceGenerator(name = "ALUNO", sequenceName = "aluno_seq_id", initialValue = 1, allocationSize = 1)
-public class Aluno implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "aluno_seq_id")
-	private Long id;
+public class AlunoForm {
 	
 	@NotBlank(message = "Campo Nome é obrigatório")
 	@Column(name = "NOME", length = 40, nullable = false)
@@ -54,6 +38,5 @@ public class Aluno implements Serializable {
 	@NotBlank(message = "Campo E-mail é obrigatório")
 	@Column(name = "EMAIL", length = 255, nullable = false, unique = true)
 	private String email;
-	
-	
+
 }
