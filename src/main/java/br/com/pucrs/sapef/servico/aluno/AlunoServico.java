@@ -53,4 +53,16 @@ public class AlunoServico {
 		
 	}
 	
+	public Boolean excluirAluno(Long id) {
+		Optional<Aluno> alunoBanco = alunoRepositorio.findById(id);
+		Boolean excluir = false;
+		if(alunoBanco.isPresent()) {
+			alunoRepositorio.delete(alunoBanco.get());
+			excluir = true;
+		} else {
+			alunoBanco.orElseThrow();
+		}
+		return excluir;
+	}
+	
 }
