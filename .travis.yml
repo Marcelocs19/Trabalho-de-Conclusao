@@ -1,0 +1,11 @@
+language: java
+jdk: oraclejdk14
+
+services:
+  - postgresql
+  
+before_install:
+  - chmod +x mvnw
+  - psql -u root -e "CREATE DATABASE sapef_teste;"
+  - psql -u root -e "CREATE user 'userteste'@'%' identified by '123456';"
+  - psql -u root -e "GRANT ALL PRIVILEGES ON sapef_teste.* TO 'userteste'@'%';";
