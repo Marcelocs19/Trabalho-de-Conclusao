@@ -18,6 +18,8 @@ public class AlunoDto {
 	
 	private String endereco;
 	
+	private String bairro;
+	
 	private Integer numero;
 	
 	private String cpf;
@@ -25,7 +27,7 @@ public class AlunoDto {
 	private String email;
 	
 	public static AlunoDto converteAluno(Aluno aluno) {
-		return new AlunoDto(aluno.getNome(), aluno.getSobrenome(), aluno.getEndereco(), aluno.getNumero(), aluno.getCpf(), aluno.getEmail());
+		return new AlunoDto(aluno.getNome(), aluno.getSobrenome(), aluno.getEndereco(), aluno.getBairro() ,aluno.getNumero(), aluno.getCpf(), aluno.getEmail());
 	}
 	
 }

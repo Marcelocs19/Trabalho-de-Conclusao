@@ -27,7 +27,10 @@ public class AlunoForm {
 	@Column(name = "ENDERECO", length = 255, nullable = false)
 	private String endereco;
 	
-	@NotBlank(message = "Campo Número é obrigatório")
+	@NotBlank(message = "Campo Bairro é obrigatório")
+	@Column(name = "BAIRRO", length = 255, nullable = false)
+	private String bairro;
+		
 	@Column(name = "NUMERO", nullable = false)
 	private Integer numero;
 	

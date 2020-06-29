@@ -7,7 +7,9 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,8 @@ import br.com.pucrs.sapef.servico.aluno.AlunoServico;
 public class AlunoControlador {
 
 	private static final String LISTAR_ALUNOS = "/listarAlunos";
+	private static final String CADASTRAR_ALUNO = "/novo";
+	private static final String EDITAR_ALUNO = "/editar/{id}";
 	
 	@Autowired
 	private AlunoServico alunoServico;
@@ -32,9 +36,14 @@ public class AlunoControlador {
 		return ResponseEntity.ok().body(listaTodosAlunos);
 	}
 	
-	@PostMapping
+	@PostMapping(CADASTRAR_ALUNO)
 	public ResponseEntity<AlunoDto> cadastrarAluno(@RequestBody @Valid AlunoForm aluno) {
 		return ResponseEntity.ok().body(alunoServico.adicionarAluno(aluno));
+	}
+	
+	@PutMapping(EDITAR_ALUNO) 
+	public ResponseEntity<AlunoDto> editarAluno(@PathVariable(name = "id") Long id, @RequestBody @Valid AlunoForm aluno) {
+		return ResponseEntity.ok().body(alunoServico.editarAluno(id, aluno));
 	}
 
 }
