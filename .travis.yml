@@ -3,9 +3,7 @@ jdk: oraclejdk14
 
 services:
   - postgresql
-  
-before_install:
-  - chmod +x mvnw
-  - psql -u root -e "CREATE DATABASE db_sapef_teste;"
-  - psql -u root -e "CREATE user 'userteste'@'%' identified by '123456';"
-  - psql -u root -e "GRANT ALL PRIVILEGES ON db_sapef_teste.* TO 'userteste'@'%';";
+ 
+before_script:
+  - psql -c "CREATE DATABASE db_sapef_teste;" -U postgres
+  - psql -c "CREATE USER userteste WITH PASSWORD '123456';" -U postgres
