@@ -6,6 +6,7 @@ services:
   - postgresql
 
 before_install:  
+  - chmod +x mvnw
   - psql -c "CREATE DATABASE db_sapef_teste;" -U postgres
     
 
