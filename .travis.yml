@@ -1,5 +1,5 @@
 language: java
-jdk: oraclejdk13
+jdk: oraclejdk12
  
 services:
   - postgresql
@@ -8,4 +8,3 @@ before_install:
   - chmod +x mvnw
   - psql -c "CREATE DATABASE db_sapef_teste;" -U postgres
   - psql -c "CREATE USER postgres WITH PASSWORD '123456';" -U postgres
-  - travis_wait 20 mvn install
