@@ -1,6 +1,8 @@
 language: java
 jdk: oraclejdk14
 
+ install: travis_wait 20 mvn install
+
 services:
   - postgresql
 
