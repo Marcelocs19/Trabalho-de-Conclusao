@@ -11,6 +11,8 @@ import lombok.ToString;
 @Data
 @ToString
 public class AlunoDto {
+	
+	private Long id;
 
 	private String nome;
 	
@@ -27,7 +29,7 @@ public class AlunoDto {
 	private String email;
 	
 	public static AlunoDto converteAluno(Aluno aluno) {
-		return new AlunoDto(aluno.getNome(), aluno.getSobrenome(), aluno.getEndereco(), aluno.getBairro() ,aluno.getNumero(), aluno.getCpf(), aluno.getEmail());
+		return new AlunoDto(aluno.getId(), aluno.getNome(), aluno.getSobrenome(), aluno.getEndereco(), aluno.getBairro() ,aluno.getNumero(), aluno.getCpf(), aluno.getEmail());
 	}
 	
 }
