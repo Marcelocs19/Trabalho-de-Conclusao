@@ -1,5 +1,6 @@
 package br.com.pucrs.sapef.servico.aluno;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,8 +18,15 @@ public class AlunoServico {
 	@Autowired
 	private AlunoRepositorio alunoRepositorio;
 
-	public List<Aluno> listaTodosAlunos(){
-		return alunoRepositorio.findAll();
+	public List<AlunoDto> listaTodosAlunos(){
+		List<AlunoDto> listaDto = new ArrayList<>();
+		List<Aluno> listaAlunos = alunoRepositorio.findAll();
+		
+		listaAlunos.forEach(a -> {
+			listaDto.add(AlunoDto.converteAluno(a));
+		});
+		
+		return listaDto;
 	}
 	
 	public AlunoDto adicionarAluno(AlunoForm form) {
@@ -26,6 +34,7 @@ public class AlunoServico {
 		novo.setCpf(form.getCpf());
 		novo.setEmail(form.getEmail());
 		novo.setEndereco(form.getEndereco());
+		novo.setEnderecoCompleto(form.getEnderecoCompleto());
 		novo.setBairro(form.getBairro());
 		novo.setNome(form.getNome());
 		novo.setNumero(form.getNumero());
@@ -44,6 +53,7 @@ public class AlunoServico {
 			aluno.setNumero(form.getNumero());
 			aluno.setSobrenome(form.getSobrenome());
 			aluno.setEndereco(form.getEndereco());
+			aluno.setEnderecoCompleto(form.getEnderecoCompleto());
 			aluno.setBairro(form.getBairro());
 			
 		} else {

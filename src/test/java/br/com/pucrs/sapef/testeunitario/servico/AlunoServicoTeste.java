@@ -61,6 +61,7 @@ public class AlunoServicoTeste {
 		aluno1.setEmail("joao@gmail.com");
 		aluno1.setCpf("83220290043");
 		aluno1.setEndereco("Av. Bento Gonçalves");
+		aluno1.setEnderecoCompleto("Avenida Bento Gonçalves, 4289 - Partenon, Porto Alegre - RS");
 		aluno1.setNumero(4289);
 		aluno1.setBairro("Partenon");
 
@@ -71,6 +72,7 @@ public class AlunoServicoTeste {
 		aluno2.setEmail("maria@gmail.com");
 		aluno2.setCpf("59822468083");
 		aluno2.setEndereco("Av. Ipiranga");
+		aluno2.setEnderecoCompleto("Av. Ipiranga, 7721 - Partenon, Porto Alegre - RS");
 		aluno2.setNumero(7721);
 		aluno2.setBairro("Partenon");
 
@@ -81,6 +83,7 @@ public class AlunoServicoTeste {
 		aluno3.setEmail("thiago@gmail.com");
 		aluno3.setCpf("82580979034");
 		aluno3.setEndereco("Rua Afonso Rodrigues");
+		aluno3.setEnderecoCompleto("Rua Afonso Rodrigues, 272 - Jardim Botânico, Porto Alegre - RS");
 		aluno3.setNumero(272);
 		aluno3.setBairro("Jardim Botânico");
 
@@ -91,12 +94,13 @@ public class AlunoServicoTeste {
 		aluno4.setEmail("ana@gmail.com");
 		aluno4.setCpf("34039680065");
 		aluno4.setEndereco("Rua Cel Aparício Borges");
+		aluno4.setEnderecoCompleto("Rua Coronel Aparício Borges, 1640 - Glória, Porto Alegre - RS");
 		aluno4.setNumero(1640);
 		aluno4.setBairro("Glória");
 
 		listaAlunos.addAll(Arrays.asList(aluno1, aluno2, aluno3, aluno4));
 
-		alunoForm = new AlunoForm("Fulano", "Da Silva", "Av. Prof. Oscar Pereira", "Glória", 2636, "66339994024",
+		alunoForm = new AlunoForm("Fulano", "Da Silva", "Av. Prof. Oscar Pereira","Av. Prof. Oscar Pereira, 2636 - Glória, Porto Alegre - RS", "Glória", 2636, "66339994024",
 				"fulano@gmail.com");
 
 		aluno5 = new Aluno();
@@ -105,10 +109,11 @@ public class AlunoServicoTeste {
 		aluno5.setEmail("fulano@gmail.com");
 		aluno5.setCpf("66339994024");
 		aluno5.setEndereco("Av. Prof. Oscar Pereira");
+		aluno5.setEnderecoCompleto("Av. Prof. Oscar Pereira, 2636 - Glória, Porto Alegre - RS");
 		aluno5.setNumero(2636);
 		aluno5.setBairro("Glória");
 
-		alunoForm2 = new AlunoForm("Teste", "Oliveira", "Av. Bento Gonçalves", "Partenon", 4289, "83220290043",
+		alunoForm2 = new AlunoForm("Teste", "Oliveira", "Av. Bento Gonçalves","Avenida Bento Gonçalves, 4289 - Partenon, Porto Alegre - RS", "Partenon", 4289, "83220290043",
 				"joao@gmail.com");
 
 	}
@@ -116,7 +121,7 @@ public class AlunoServicoTeste {
 	@Test
 	public void testeListarTodosAlunos() throws Exception {
 		when(alunoRepositorioMock.findAll()).thenReturn(listaAlunos);
-		List<Aluno> listaTodosAlunos = alunoServico.listaTodosAlunos();
+		List<AlunoDto> listaTodosAlunos = alunoServico.listaTodosAlunos();
 		assertThat(listaTodosAlunos.get(0).getEmail()).isEqualTo("joao@gmail.com");
 		assertThat(listaTodosAlunos.get(1).getEmail()).isEqualTo("maria@gmail.com");
 		assertThat(listaTodosAlunos.get(2).getEmail()).isEqualTo("thiago@gmail.com");

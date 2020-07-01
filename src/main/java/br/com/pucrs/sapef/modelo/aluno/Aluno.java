@@ -44,6 +44,9 @@ public class Aluno implements Serializable {
 	@NotBlank(message = "Campo Endereço é obrigatório")
 	@Column(name = "ENDERECO", length = 255, nullable = false)
 	private String endereco;
+		
+	@Column(name = "ENDERECOCOMPLETO", length = 255, nullable = false)
+	private String enderecoCompleto;
 	
 	@NotBlank(message = "Campo Bairro é obrigatório")
 	@Column(name = "BAIRRO", length = 255, nullable = false)

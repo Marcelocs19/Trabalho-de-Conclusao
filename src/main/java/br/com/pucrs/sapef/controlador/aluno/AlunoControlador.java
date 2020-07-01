@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.pucrs.sapef.dto.AlunoDto;
 import br.com.pucrs.sapef.form.AlunoForm;
-import br.com.pucrs.sapef.modelo.aluno.Aluno;
 import br.com.pucrs.sapef.servico.aluno.AlunoServico;
 
 @RestController
@@ -33,8 +32,8 @@ public class AlunoControlador {
 	private AlunoServico alunoServico;
 	
 	@GetMapping(LISTAR_ALUNOS)
-	public ResponseEntity<List<Aluno>> listarAluno() {
-		List<Aluno> listaTodosAlunos = alunoServico.listaTodosAlunos();
+	public ResponseEntity<List<AlunoDto>> listarAluno() {
+		List<AlunoDto> listaTodosAlunos = alunoServico.listaTodosAlunos();
 		return ResponseEntity.ok().body(listaTodosAlunos);
 	}
 	
