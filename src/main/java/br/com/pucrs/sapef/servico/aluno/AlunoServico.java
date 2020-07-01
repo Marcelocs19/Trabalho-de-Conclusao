@@ -22,7 +22,7 @@ public class AlunoServico {
 	}
 	
 	public AlunoDto adicionarAluno(AlunoForm form) {
-		Aluno novo = new Aluno();
+		Aluno novo = new Aluno();		
 		novo.setCpf(form.getCpf());
 		novo.setEmail(form.getEmail());
 		novo.setEndereco(form.getEndereco());
