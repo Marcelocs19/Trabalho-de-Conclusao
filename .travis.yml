@@ -8,6 +8,7 @@ services:
 
 script:
   - ./mvnw clean install -B
+  - travis_wait 30 mvn install
 
 before_install:  
   - psql -c "CREATE DATABASE db_sapef_teste;" -U postgres
