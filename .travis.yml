@@ -1,7 +1,6 @@
 language: java
-
 jdk: 
-  - openjdk12
+  - oraclejdk12
  
 services:
   - postgresql
