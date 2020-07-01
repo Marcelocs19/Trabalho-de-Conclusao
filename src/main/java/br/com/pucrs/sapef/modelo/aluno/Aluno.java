@@ -11,6 +11,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -50,8 +52,9 @@ public class Aluno implements Serializable {
 	@Column(name = "NUMERO", nullable = false)
 	private Integer numero;
 	
-	@NotBlank(message = "Campo Cpf é obrigatório")
-	@Column(name = "CPF", length = 11 ,nullable = false)
+	@NotBlank(message = "Campo Cpf é obrigatório") 
+	@CPF
+	@Column(name = "CPF", nullable = false, unique = true)
 	private String cpf;
 	
 	@NotBlank(message = "Campo E-mail é obrigatório")
