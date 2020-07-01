@@ -27,12 +27,12 @@ import br.com.pucrs.sapef.servico.aluno.AlunoServico;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class AlunoServicoTeste {
-	
+
 	private static final Long TESTE1_ID_ALUNO = 1L;
 	private static final Long TESTE2_ID_ALUNO = 2L;
 	private static final Long TESTE3_ID_ALUNO = 3L;
 	private static final Long TESTE4_ID_ALUNO = 4L;
-	
+
 	private Aluno aluno1;
 	private Aluno aluno2;
 	private Aluno aluno3;
@@ -41,19 +41,19 @@ public class AlunoServicoTeste {
 	private AlunoForm alunoForm;
 	private AlunoForm alunoForm2;
 	private AlunoDto adicionarAluno;
-	
+
 	@Autowired
 	private AlunoServico alunoServico;
-	
+
 	@MockBean
 	private AlunoRepositorio alunoRepositorioMock;
-	
+
 	private List<Aluno> listaAlunos;
-	
+
 	@Before
 	public void setup() {
 		listaAlunos = new ArrayList<>();
-		
+
 		aluno1 = new Aluno();
 		aluno1.setId(TESTE1_ID_ALUNO);
 		aluno1.setNome("João");
@@ -63,7 +63,7 @@ public class AlunoServicoTeste {
 		aluno1.setEndereco("Av. Bento Gonçalves");
 		aluno1.setNumero(4289);
 		aluno1.setBairro("Partenon");
-		
+
 		aluno2 = new Aluno();
 		aluno2.setId(TESTE2_ID_ALUNO);
 		aluno2.setNome("Maria");
@@ -73,7 +73,7 @@ public class AlunoServicoTeste {
 		aluno2.setEndereco("Av. Ipiranga");
 		aluno2.setNumero(7721);
 		aluno2.setBairro("Partenon");
-		
+
 		aluno3 = new Aluno();
 		aluno3.setId(TESTE3_ID_ALUNO);
 		aluno3.setNome("Thiago");
@@ -83,7 +83,7 @@ public class AlunoServicoTeste {
 		aluno3.setEndereco("Rua Afonso Rodrigues");
 		aluno3.setNumero(272);
 		aluno3.setBairro("Jardim Botânico");
-		
+
 		aluno4 = new Aluno();
 		aluno4.setId(TESTE4_ID_ALUNO);
 		aluno4.setNome("Ana");
@@ -93,11 +93,12 @@ public class AlunoServicoTeste {
 		aluno4.setEndereco("Rua Cel Aparício Borges");
 		aluno4.setNumero(1640);
 		aluno4.setBairro("Glória");
-		
-		listaAlunos.addAll(Arrays.asList(aluno1,aluno2,aluno3,aluno4));
-		
-		alunoForm = new AlunoForm("Fulano", "Da Silva","Av. Prof. Oscar Pereira" , "Glória", 2636,"66339994024" , "fulano@gmail.com");
-		
+
+		listaAlunos.addAll(Arrays.asList(aluno1, aluno2, aluno3, aluno4));
+
+		alunoForm = new AlunoForm("Fulano", "Da Silva", "Av. Prof. Oscar Pereira", "Glória", 2636, "66339994024",
+				"fulano@gmail.com");
+
 		aluno5 = new Aluno();
 		aluno5.setNome("Fulano");
 		aluno5.setSobrenome("Da Silva");
@@ -106,11 +107,12 @@ public class AlunoServicoTeste {
 		aluno5.setEndereco("Av. Prof. Oscar Pereira");
 		aluno5.setNumero(2636);
 		aluno5.setBairro("Glória");
-		
-		alunoForm2 = new AlunoForm("Teste", "Oliveira","Av. Bento Gonçalves" , "Partenon", 4289, "83220290043" , "joao@gmail.com");
-		
+
+		alunoForm2 = new AlunoForm("Teste", "Oliveira", "Av. Bento Gonçalves", "Partenon", 4289, "83220290043",
+				"joao@gmail.com");
+
 	}
-	
+
 	@Test
 	public void testeListarTodosAlunos() throws Exception {
 		when(alunoRepositorioMock.findAll()).thenReturn(listaAlunos);
@@ -119,9 +121,9 @@ public class AlunoServicoTeste {
 		assertThat(listaTodosAlunos.get(1).getEmail()).isEqualTo("maria@gmail.com");
 		assertThat(listaTodosAlunos.get(2).getEmail()).isEqualTo("thiago@gmail.com");
 		assertThat(listaTodosAlunos.get(3).getEmail()).isEqualTo("ana@gmail.com");
-		
+
 	}
-	
+
 	@Test
 	public void testeAdicionarAluno() throws Exception {
 		when(alunoRepositorioMock.saveAndFlush(aluno5)).thenReturn(aluno5);
@@ -133,9 +135,9 @@ public class AlunoServicoTeste {
 		assertThat(adicionarAluno.getEndereco()).isEqualTo("Av. Prof. Oscar Pereira");
 		assertThat(adicionarAluno.getNumero()).isEqualTo(2636);
 		assertThat(adicionarAluno.getBairro()).isEqualTo("Glória");
-		
+
 	}
-	
+
 	@Test
 	public void testeEditarAluno() throws Exception {
 		Optional<Aluno> aluno = Optional.empty();
@@ -151,9 +153,9 @@ public class AlunoServicoTeste {
 	public void testeExcluirAluno() throws Exception {
 		Optional<Aluno> aluno = Optional.empty();
 		aluno = Optional.of(aluno1);
-		when(alunoRepositorioMock.findById(TESTE1_ID_ALUNO)).thenReturn(aluno);		
+		when(alunoRepositorioMock.findById(TESTE1_ID_ALUNO)).thenReturn(aluno);
 		Boolean excluirAluno = alunoServico.excluirAluno(TESTE1_ID_ALUNO);
 		assertThat(excluirAluno).isEqualTo(true);
 	}
-	
+
 }
